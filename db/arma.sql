@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1
--- Generation Time: Mar 16, 2024 at 11:14 AM
+-- Generation Time: Mar 16, 2024 at 11:25 AM
 -- Server version: 10.4.16-MariaDB
 -- PHP Version: 7.4.12
 
@@ -94,7 +94,8 @@ INSERT INTO `users` (`id`, `name`, `email`, `email_verified_at`, `password`, `re
 (1, 'Rahim uddin', 'admin@gmail.com', NULL, '$2y$10$mSOSucNfiaHihAzzz8Ud3OTlZMRDw37grHlKahB4j9qcfFTiS1uzK', NULL, '2024-03-16 03:09:10', '2024-03-16 03:09:10'),
 (2, 'atik', 'atik@gmail.com', NULL, '$2y$10$9ktl0u.jrJmj0MDiWmPNJuVpUMq0S3qre3ekpM1QvFJVbQ5xIy06q', NULL, '2024-03-16 03:24:01', '2024-03-16 03:24:01'),
 (3, 'SHANJOY DAS SHANJIT', 'shanjit@gmail.com', NULL, '$2y$10$838Xbk2Dqi6/tdy.scv5p.D7shpYhBeEWXxgxWeiEyYnWaVmkg3le', NULL, '2024-03-16 03:43:12', '2024-03-16 03:43:12'),
-(4, 'tawfiq', 'tawfiq@gmail.com', NULL, '$2y$10$EL4WIn7hp97SUrRJ8XQekOcE7cIK2McZCBOhiHtGv27cUKo4qCNH6', NULL, '2024-03-16 04:14:07', '2024-03-16 04:14:07');
+(4, 'tawfiq', 'tawfiq@gmail.com', NULL, '$2y$10$EL4WIn7hp97SUrRJ8XQekOcE7cIK2McZCBOhiHtGv27cUKo4qCNH6', NULL, '2024-03-16 04:14:07', '2024-03-16 04:14:07'),
+(5, 'koheli', 'koheli@gmail.com', NULL, '$2y$10$1wHAhLICb2PM.yEatP91Fe6RHp.66JnWqFiXgFBeAGQAdmpNwYMzC', NULL, '2024-03-16 04:25:07', '2024-03-16 04:25:07');
 
 --
 -- Indexes for dumped tables
@@ -145,7 +146,7 @@ ALTER TABLE `migrations`
 -- AUTO_INCREMENT for table `users`
 --
 ALTER TABLE `users`
-  MODIFY `id` bigint(20) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=5;
+  MODIFY `id` bigint(20) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=6;
 COMMIT;
 
 /*!40101 SET CHARACTER_SET_CLIENT=@OLD_CHARACTER_SET_CLIENT */;
