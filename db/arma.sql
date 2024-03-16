@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1
--- Generation Time: Mar 16, 2024 at 11:27 AM
+-- Generation Time: Mar 16, 2024 at 11:25 AM
 -- Server version: 10.4.16-MariaDB
 -- PHP Version: 7.4.12
 
@@ -49,6 +49,7 @@ INSERT INTO `users` (`id`, `name`, `email`, `email_verified_at`, `password`, `re
 (4, 'tawfiq', 'tawfiq@gmail.com', NULL, '$2y$10$EL4WIn7hp97SUrRJ8XQekOcE7cIK2McZCBOhiHtGv27cUKo4qCNH6', NULL, '2024-03-16 04:14:07', '2024-03-16 04:14:07'),
 (5, 'tamim', 'tamim@gmail.com', NULL, '$2y$10$90xMdEw4aAyNoP9NbiZqK.9NplLsoBaI0oYpGbyhgG6nfVrjUJbxK', NULL, '2024-03-16 04:24:54', '2024-03-16 04:24:54'),
 (6, 'sakib', 'sakib@gmail.com', NULL, '$2y$10$MD3n1mFZGHre9VSnWl3ZQOeqaqMB9dsyCNSley57VVyHkVqCBvrqm', NULL, '2024-03-16 04:25:40', '2024-03-16 04:25:40');
+(7, 'koheli', 'koheli@gmail.com', NULL, '$2y$10$1wHAhLICb2PM.yEatP91Fe6RHp.66JnWqFiXgFBeAGQAdmpNwYMzC', NULL, '2024-03-16 04:25:07', '2024-03-16 04:25:07');
 
 --
 -- Indexes for dumped tables
@@ -70,6 +71,7 @@ ALTER TABLE `users`
 --
 ALTER TABLE `users`
   MODIFY `id` bigint(20) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=7;
+  MODIFY `id` bigint(20) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=6;
 COMMIT;
 
 /*!40101 SET CHARACTER_SET_CLIENT=@OLD_CHARACTER_SET_CLIENT */;
