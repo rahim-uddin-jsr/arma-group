@@ -456,9 +456,9 @@
                                             <li>
                                                 <a>Project <i class="fa fa-angle-down"></i></a>
                                                 <ul>
-                                                    <li><a href="completed_project.php">Completed Project</a></li>
-                                                    <li><a href="on_going_project.php">On Going Project</a></li>
-                                                    <li><a href="upcoming_project.php">Upcoming Project</a></li>
+                                                    <li><a href="{{ route('completed project') }}">Completed Project</a></li>
+                                                    <li><a href="{{ route('on going project') }}">On Going Project</a></li>
+                                                    <li><a href="{{ route("upcoming project") }}">Upcoming Project</a></li>
                                                 </ul>
                                             </li>
                                             <li><a href="gallery.php">Gallery</a></li>
