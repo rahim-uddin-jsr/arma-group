@@ -4,7 +4,7 @@
     <head>
         <meta charset="utf-8">
         <meta http-equiv="x-ua-compatible" content="ie=edge">
-        <title>ARMA REAL ESTATE LIMITED</title>
+        <title>ARMA REAL ESTATE LIMITED @yield('title')</title>
         <meta name="description" content="">
         <meta name="viewport" content="width=device-width, initial-scale=1">
         <!-- Place favicon.ico in the root directory -->
@@ -442,14 +442,14 @@
                                 <div class="main-menu text-center">
                                     <nav>
                                         <ul class="main-nav">
-                                            <li><a href="index.php">Home </a></li>
+                                            <li><a href="{{ url('/') }}">Home </a></li>
                                             <li>
                                                 <a>About Us <i class="fa fa-angle-down"></i></a>
                                                 <ul>
-                                                    <li><a href="mission-vision.php">Mission & Vision </a></li>
-                                                    <li><a href="our-values.php">Our Values</a></li>
-                                                    <li><a href="our-strength.php">Our Strength</a></li>
-                                                    <li><a href="chairman-message.php">Chairman's Message</a></li>
+                                                    <li><a href="{{ route('mission vision') }}">Mission & Vision </a></li>
+                                                    <li><a href="{{ route('our values') }}">Our Values</a></li>
+                                                    <li><a href="{{ route('our strength') }}">Our Strength</a></li>
+                                                    <li><a href="{{ route('chairman message') }}">Chairman's Message</a></li>
                                                 </ul>
                                             </li>
                                             <!--<li><a href="about.php">About Us</a></li>-->
