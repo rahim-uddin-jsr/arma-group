@@ -10,7 +10,8 @@
 
                     <br>
                     <div class="footer-about" style="text-align: center;padding-right: 73px;">
-                        <img src="{{ asset('assets/images/logo/ARMA-Real-Estate-Logo.png') }}" alt="ARMA-Real-Estate-Logo" />
+                        <img src="{{ asset('assets/images/logo/ARMA-Real-Estate-Logo.png') }}"
+                            alt="ARMA-Real-Estate-Logo" />
                     </div>
                 </div>
 
@@ -62,7 +63,8 @@
         <div class="container">
             <div class="row">
                 <div class="col-lg-12 col-md-12 col-sm-12 col-xs-12 footer-1 text-left ">
-                    <p>Copyright @2018. All Rights Reserved By <a class="name" style="color: #fff; font-size: 15px">ARMA
+                    <p>Copyright @2018. All Rights Reserved By <a class="name"
+                            style="color: #fff; font-size: 15px">ARMA
                             GROUP</a> <span style="text-align: right; float: right;">Developed By<a
                                 href="http://cyberdynetechnologyltd.com/" target="_blank"> <b
                                     style="color: #fff;">Cyberdyne Technology Ltd.</b></a> </span></p>
@@ -82,33 +84,7 @@
 </style>
 <!-- All JS here -->
 <!-- jquery latest version -->
-<script src="{{ asset('assets/frontend/js/vendor/jquery-1.12.0.min.js') }}"></script>
-
-<!-- bootstrap JS -->
-<script src="{{ asset('assets/frontend/js/bootstrap.min.js') }}"></script>
-<!-- owl.carousel JS -->
-<script src="{{ asset('assets/frontend/js/owl.carousel.min.js') }}"></script>
-<!-- bootstrap select JS -->
-<script src="{{ asset('assets/frontend/js/bootstrap-select.min.js') }}"></script>
-<!-- magnific popup JS -->
-<script src="{{ asset('assets/frontend/js/jquery.magnific-popup.min.js') }}"></script>
-<!-- jquery-ui JS -->
-<script src="{{ asset('assets/frontend/js/jquery-ui.min.js') }}"></script>
-<!-- wow JS -->
-<script src="{{ asset('assets/frontend/js/wow.min.js') }}"></script>
-<!-- bxslider JS -->
-<script src="{{ asset('assets/frontend/js/jquery.bxslider.min.js') }}"></script>
-<!-- counterup JS -->
-<script src="{{ asset('assets/frontend/js/jquery.counterup.min.js') }}"></script>
-<script src="{{ asset('assets/frontend/js/waypoints.min.js') }}"></script>
-<!-- slick JS -->
-<script src="{{ asset('assets/frontend/js/slick.min.js') }}"></script>
-<!-- meanmenu js -->
-<script src="{{ asset('assets/frontend/js/jquery.meanmenu.js') }}"></script>
-<!-- plugins JS -->
-<script src="{{ asset('assets/frontend/js/plugins.js') }}"></script>
-<!-- main JS -->
-<script src="{{ asset('assets/frontend/js/main.js') }}"></script>
+@include('frontend.inc.scripts')
 </body>
 
 </html>

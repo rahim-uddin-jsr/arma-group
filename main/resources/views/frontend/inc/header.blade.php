@@ -1,47 +1,47 @@
 <!doctype html>
 <html class="no-js" lang="en-us">
 
-    <head>
-        <meta charset="utf-8">
-        <meta http-equiv="x-ua-compatible" content="ie=edge">
-        <title>ARMA REAL ESTATE LIMITED @yield('title')</title>
-        <meta name="description" content="">
-        <meta name="viewport" content="width=device-width, initial-scale=1">
-        <!-- Place favicon.ico in the root directory -->
+<head>
+    <meta charset="utf-8">
+    <meta http-equiv="x-ua-compatible" content="ie=edge">
+    <title>ARMA REAL ESTATE LIMITED @yield('title')</title>
+    <meta name="description" content="">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <!-- Place favicon.ico in the root directory -->
 
-        <!-- All CSS here -->
-        <!-- bootstrap v3.3.6 CSS -->
-        <link rel="stylesheet" href="{{ asset('assets/frontend/css/bootstrap.min.css') }}">
-        <!-- animate CSS -->
-        <link rel="stylesheet" href="{{ asset('assets/frontend/css/animate.css') }}">
-        <!-- jquery-ui.min CSS -->
-        <link rel="stylesheet" href="{{ asset('assets/frontend/css/jquery-ui.min.css') }}">
-        <!-- bootstrap select CSS -->
-        <link rel="stylesheet" href="{{ asset('assets/frontend/css/bootstrap-select.min.css') }}">
-        <!-- magnific popup CSS -->
-        <link rel="stylesheet" href="{{ asset('assets/frontend/css/magnific-popup.css') }}">
-        <!-- owl.carousel CSS -->
-        <link rel="stylesheet" href="{{ asset('assets/frontend/css/owl.carousel.css') }}">
-        <!-- bxslider CSS -->
-        <link rel="stylesheet" href="{{ asset('assets/frontend/css/jquery.bxslider.css') }}">
-        <!-- slick CSS -->
-        <link rel="stylesheet" href="{{ asset('assets/frontend/css/slick.css') }}">
-        <link rel="stylesheet" href="{{ asset('assets/frontend/css/slick-theme.css') }}">
-        <!-- font-awesome CSS -->
-        <link rel="stylesheet" href="{{ asset('assets/frontend/css/font-awesome.min.css') }}">
-        <!-- meanmenu css -->
-        <link rel="stylesheet" href="{{ asset('assets/frontend/css/meanmenu.min.css') }}">
-        <!-- style CSS -->
-        <link rel="stylesheet" href="{{ asset('assets/frontend/css/style.css') }}">
-        <!-- responsive CSS -->
-        <link rel="stylesheet" href="{{ asset('assets/frontend/css/responsive.css') }}">
-        <!-- modernizr CSS -->
-        <script src="https://cdnjs.cloudflare.com/ajax/libs/modernizr/2.8.3/modernizr.js"></script>
-        <link rel="stylesheet" id="bootstrap-css" href="{{ asset('assets/frontend/css/new-bootstrap.min.css') }}">
-        <script src="//maxcdn.bootstrapcdn.com/bootstrap/3.3.0/js/bootstrap.min.js"></script>
-        <script src="//code.jquery.com/jquery-1.11.1.min.js"></script>
+    <!-- All CSS here -->
+    <!-- bootstrap v3.3.6 CSS -->
+    <link rel="stylesheet" href="{{ asset('assets/frontend/css/bootstrap.min.css') }}">
+    <!-- animate CSS -->
+    <link rel="stylesheet" href="{{ asset('assets/frontend/css/animate.css') }}">
+    <!-- jquery-ui.min CSS -->
+    <link rel="stylesheet" href="{{ asset('assets/frontend/css/jquery-ui.min.css') }}">
+    <!-- bootstrap select CSS -->
+    <link rel="stylesheet" href="{{ asset('assets/frontend/css/bootstrap-select.min.css') }}">
+    <!-- magnific popup CSS -->
+    <link rel="stylesheet" href="{{ asset('assets/frontend/css/magnific-popup.css') }}">
+    <!-- owl.carousel CSS -->
+    <link rel="stylesheet" href="{{ asset('assets/frontend/css/owl.carousel.css') }}">
+    <!-- bxslider CSS -->
+    <link rel="stylesheet" href="{{ asset('assets/frontend/css/jquery.bxslider.css') }}">
+    <!-- slick CSS -->
+    <link rel="stylesheet" href="{{ asset('assets/frontend/css/slick.css') }}">
+    <link rel="stylesheet" href="{{ asset('assets/frontend/css/slick-theme.css') }}">
+    <!-- font-awesome CSS -->
+    <link rel="stylesheet" href="{{ asset('assets/frontend/css/font-awesome.min.css') }}">
+    <!-- meanmenu css -->
+    <link rel="stylesheet" href="{{ asset('assets/frontend/css/meanmenu.min.css') }}">
+    <!-- style CSS -->
+    <link rel="stylesheet" href="{{ asset('assets/frontend/css/style.css') }}">
+    <!-- responsive CSS -->
+    <link rel="stylesheet" href="{{ asset('assets/frontend/css/responsive.css') }}">
+    <!-- modernizr CSS -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/modernizr/2.8.3/modernizr.js"></script>
+    <link rel="stylesheet" id="bootstrap-css" href="{{ asset('assets/frontend/css/new-bootstrap.min.css') }}">
+    <script src="//maxcdn.bootstrapcdn.com/bootstrap/3.3.0/js/bootstrap.min.js"></script>
+    <script src="//code.jquery.com/jquery-1.11.1.min.js"></script>
 
-        <style>
+    <style>
         .about-area {
             margin-right: 19px !important;
             margin-left: -28px !important;
@@ -401,111 +401,17 @@
 
 
         }
+    </style>
 
-        </style>
+</head>
 
-    </head>
-
-    <body>
+<body>
 
 
-        <!-- Header Area -->
-        <header>
-            <section class="page_topline ls section_padding_15" id="head-iso">
-                <div class="container-fluid">
-                    <div class="col-sm-12 col-xs-12 col-md-12 col-lg-12 col-xl-12 row">
-                        <div class="col-md-5 col-lg-5 hidden-xs hidden-sm">
+    <!-- Header Area -->
+    <header>
+        @include('frontend.inc.header-top')
+        @include('frontend.inc.navigation')
 
-                        </div>
-                        <div class="col-md-5 col-lg-7 col-sm-12 col-xs-12 text-left">
-                            <p class="head-iso" style="padding: 0px; margin: 0px; font-size: 14px"><b>ISO 9001:2015
-                                    Certified Company, <span style="color: #F1C40F; margin-right: 5px;">Hotline:
-                                        01761-115807, 01311-468100</span></b></p>
-                        </div>
-                        <!--<div class="col-md-6 col-sm-6 col-md-pull-6 text-center text-md-left"></div>-->
-                    </div>
-                </div>
-            </section>
-            <div class="header-v1">
-                <div class="header-navbar" style="background-color: #037329">
-                    <div class="container">
-                        <div class="row">
-                            <div class="col-md-2 col-sm-12 col-xs-12" style="padding: 0px;">
-                                <div class="header-logo">
-                                    <a href="index.php">
-                                        <img src="{{ asset('assets/images/logo/ARMA-Real-Estate-Logo.png') }}" alt="ARMA-Real-Estate-Logo" />
-                                    </a>
-                                </div>
-                            </div>
-                            <div class="col-md-10 col-sm-12 col-xs-12">
-                                <div class="phone-menu"><i class="fa fa-bars show-menu"></i></div>
-                                <div class="main-menu text-center">
-                                    <nav>
-                                        <ul class="main-nav">
-                                            <li><a href="{{ url('/') }}">Home </a></li>
-                                            <li>
-                                                <a>About Us <i class="fa fa-angle-down"></i></a>
-                                                <ul>
-                                                    <li><a href="{{ route('mission vision') }}">Mission & Vision </a></li>
-                                                    <li><a href="{{ route('our values') }}">Our Values</a></li>
-                                                    <li><a href="{{ route('our strength') }}">Our Strength</a></li>
-                                                    <li><a href="{{ route('chairman message') }}">Chairman's Message</a></li>
-                                                </ul>
-                                            </li>
-                                            <!--<li><a href="about.php">About Us</a></li>-->
-                                            <li>
-                                                <a>Project <i class="fa fa-angle-down"></i></a>
-                                                <ul>
-                                                    <li><a href="{{ route('completed project') }}">Completed Project</a></li>
-                                                    <li><a href="{{ route('on going project') }}">On Going Project</a></li>
-                                                    <li><a href="{{ route("upcoming project") }}">Upcoming Project</a></li>
-                                                </ul>
-                                            </li>
-                                            <li><a href="gallery.php">Gallery</a></li>
-                                            <li><a href="certrfication.php">Certification</a></li>
-                                            <li><a href="career.php">Career</a></li>
-                                            <li><a href="contact.php">Contact</a></li>
-                                            <img src="">
-                                            <!--<li><a href="">Hotline:</a></li>-->
-                                        </ul>
-                                    </nav>
-                                </div>
-                            </div>
 
-                        </div>
-                    </div>
-                </div>
-            </div>
-            <!-- mobile-menu-area start -->
-            <div class="mobile-menu-area">
-                <div class="container">
-                    <div class="row">
-                        <div class="col-md-12">
-                            <div class="mobile-menu">
-                                <nav id="dropdown">
-                                    <ul>
-                                        <li><a href="index.php">Home </a></li>
-                                        <li>
-                                            <a>About Us <i class="fa fa-angle-down"></i></a>
-                                            <ul>
-                                                <li><a href="mission-vision.php">Mission & Vision </a></li>
-                                                <li><a href="our-values.php">Our Values</a></li>
-                                                <li><a href="our-strength.php">Our Strength</a></li>
-                                                <li><a href="chairman-message.php">Chairman's Message</a></li>
-                                            </ul>
-                                        </li>
-                                        <li><a href="project.php">Project </a></li>
-                                        <li><a href="gallery.php">Gallery</a></li>
-                                        <li><a href="certrfication.php">Certification</a></li>
-                                        <li><a href="career.php">Career</a></li>
-                                        <li><a href="contact.php">Contact</a></li>
-                                    </ul>
-                                </nav>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-            </div>
-            <!-- mobile-menu-area end -->
-
-        </header><!-- /Header Area -->
+    </header><!-- /Header Area -->

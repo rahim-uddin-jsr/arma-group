@@ -27,8 +27,12 @@ Route::get('/chairman-message', 'FrontendController@chairmanMessage')->name('cha
 Route::get('/completed-project', 'FrontendController@completedProject')->name('completed project');
 Route::get('/upcoming-project', 'FrontendController@upcomingProject')->name('upcoming project');
 Route::get('/on-going-project', 'FrontendController@onGoingProject')->name('on going project');
-
 // Project routes end
+Route::get('/gallery', 'FrontendController@gallery')->name('gallery');
+Route::get('/certrfication', 'FrontendController@certrfication')->name('certrfication');
+Route::get('/careers', 'FrontendController@career')->name('Career');
+Route::get('/contact', 'FrontendController@contact')->name('contact');
+
 Auth::routes();
 Route::get('/home', 'HomeController@index')->name('home');
 
