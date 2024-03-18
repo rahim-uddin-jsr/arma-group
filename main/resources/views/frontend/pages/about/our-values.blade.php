@@ -12,8 +12,7 @@
             <br>
                 </div>
             </div>
-
-            <img class="aligncenter size-medium" src="http://www.thecbg.it/images/sustainable-future2.jpg" alt="" width="1200" height="700" />
+            <img class="aligncenter size-medium" src="https://luigizoia.com/templates/yootheme/cache/gap-a70c8a91.jpeg" alt="" width="1200" height="700" />
         </div>
     </div>
 
