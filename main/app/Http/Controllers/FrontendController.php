@@ -40,4 +40,8 @@ class FrontendController extends Controller
         return view('frontend.pages.project.completed-project');
     }
     // project section end
+    public function gallery()
+    {
+        return view('frontend.pages.gallery');
+    }
 }

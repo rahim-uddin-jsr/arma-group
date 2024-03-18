@@ -461,7 +461,7 @@
                                                     <li><a href="{{ route("upcoming project") }}">Upcoming Project</a></li>
                                                 </ul>
                                             </li>
-                                            <li><a href="gallery.php">Gallery</a></li>
+                                            <li><a href="{{ route('gallery') }}">Gallery</a></li>
                                             <li><a href="certrfication.php">Certification</a></li>
                                             <li><a href="career.php">Career</a></li>
                                             <li><a href="contact.php">Contact</a></li>
