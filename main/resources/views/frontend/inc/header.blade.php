@@ -462,9 +462,9 @@
                                                 </ul>
                                             </li>
                                             <li><a href="{{ route('gallery') }}">Gallery</a></li>
-                                            <li><a href="certrfication.php">Certification</a></li>
-                                            <li><a href="career.php">Career</a></li>
-                                            <li><a href="contact.php">Contact</a></li>
+                                            <li><a href="{{ route('certrfication') }}">Certification</a></li>
+                                            <li><a href="{{ route('career') }}">Career</a></li>
+                                            <li><a href="{{ route('contact') }}">Contact</a></li>
                                             <img src="">
                                             <!--<li><a href="">Hotline:</a></li>-->
                                         </ul>

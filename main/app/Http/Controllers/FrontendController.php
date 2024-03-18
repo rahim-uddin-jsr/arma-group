@@ -44,4 +44,8 @@ class FrontendController extends Controller
     {
         return view('frontend.pages.gallery');
     }
+    public function certrfication()
+    {
+        return view('frontend.pages.certrfication');
+    }
 }
