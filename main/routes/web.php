@@ -30,7 +30,7 @@ Route::get('/on-going-project', 'FrontendController@onGoingProject')->name('on g
 // Project routes end
 Route::get('/gallery', 'FrontendController@gallery')->name('gallery');
 Route::get('/certrfication', 'FrontendController@certrfication')->name('certrfication');
-Route::get('/career', 'FrontendController@career')->name('career');
+Route::get('/careers', 'FrontendController@career')->name('Career');
 Route::get('/contact', 'FrontendController@contact')->name('contact');
 
 Auth::routes();

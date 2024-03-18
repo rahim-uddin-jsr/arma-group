@@ -48,4 +48,13 @@ class FrontendController extends Controller
     {
         return view('frontend.pages.certrfication');
     }
+    public function career()
+    {
+        return view('frontend.pages.career');
+    }
+    public function contact()
+    {
+        // dd(12);
+        return view('frontend.pages.contact');
+    }
 }

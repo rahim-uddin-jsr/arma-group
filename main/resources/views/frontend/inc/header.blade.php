@@ -463,7 +463,7 @@
                                             </li>
                                             <li><a href="{{ route('gallery') }}">Gallery</a></li>
                                             <li><a href="{{ route('certrfication') }}">Certification</a></li>
-                                            <li><a href="{{ route('career') }}">Career</a></li>
+                                            <li><a href="{{ route('Career') }}">Career</a></li>
                                             <li><a href="{{ route('contact') }}">Contact</a></li>
                                             <img src="">
                                             <!--<li><a href="">Hotline:</a></li>-->
