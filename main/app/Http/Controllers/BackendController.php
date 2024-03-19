@@ -16,7 +16,7 @@ class BackendController extends Controller
     public function project(Request $request, $id)
     {
         // dd($id,$request->all());
-        $project = Projects::with('images','keyFeature')->find($id);
+        $project = Projects::with('images','keyFeature','feature')->find($id);
         return $project;
         // return view('frontend.pages.contact');
     }
