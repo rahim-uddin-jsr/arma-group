@@ -33,6 +33,7 @@ Route::get('/certrfication', 'FrontendController@certrfication')->name('certrfic
 Route::get('/careers', 'FrontendController@career')->name('Career');
 Route::get('/contact', 'FrontendController@contact')->name('contact');
 Route::get('/projects', 'BackendController@projects')->name('projects');
+Route::get('/project/{id}', 'BackendController@project')->name('project');
 
 Auth::routes();
 Route::get('/home', 'HomeController@index')->name('home');
