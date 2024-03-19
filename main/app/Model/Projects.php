@@ -14,4 +14,7 @@ class Projects extends Model
     public function keyFeature() {
         return $this->hasMany(KeyFeature::class,'project_id','id');
     }
+    public function feature() {
+        return $this->hasMany(ProjectFeature::class,'project_id','id');
+    }
 }
