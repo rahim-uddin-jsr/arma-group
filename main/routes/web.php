@@ -1,5 +1,6 @@
 <?php
 
+use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\Route;
 
 /*
@@ -34,6 +35,7 @@ Route::get('/careers', 'FrontendController@career')->name('Career');
 Route::get('/contact', 'FrontendController@contact')->name('contact');
 Route::get('/projects', 'BackendController@projects')->name('projects');
 Route::get('/project/{id}', 'BackendController@project')->name('project');
+Route::get('/gallery-data', 'BackendController@gallery')->name('gallery data');
 
 Auth::routes();
 Route::get('/home', 'HomeController@index')->name('home');
