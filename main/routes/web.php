@@ -32,6 +32,7 @@ Route::get('/gallery', 'FrontendController@gallery')->name('gallery');
 Route::get('/certrfication', 'FrontendController@certrfication')->name('certrfication');
 Route::get('/careers', 'FrontendController@career')->name('Career');
 Route::get('/contact', 'FrontendController@contact')->name('contact');
+Route::get('/projects', 'BackendController@projects')->name('projects');
 
 Auth::routes();
 Route::get('/home', 'HomeController@index')->name('home');
