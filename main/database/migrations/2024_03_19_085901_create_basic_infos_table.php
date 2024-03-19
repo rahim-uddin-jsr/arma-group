@@ -4,7 +4,7 @@ use Illuminate\Database\Migrations\Migration;
 use Illuminate\Database\Schema\Blueprint;
 use Illuminate\Support\Facades\Schema;
 
-class CreateBasicinfoTable extends Migration
+class CreateBasicInfosTable extends Migration
 {
     /**
      * Run the migrations.
@@ -13,7 +13,7 @@ class CreateBasicinfoTable extends Migration
      */
     public function up()
     {
-        Schema::create('basicinfo', function (Blueprint $table) {
+        Schema::create('basic_infos', function (Blueprint $table) {
             $table->id();
             $table->string('image');
             $table->string('iso_id');
@@ -42,6 +42,6 @@ class CreateBasicinfoTable extends Migration
      */
     public function down()
     {
-        Schema::dropIfExists('basicinfo');
+        Schema::dropIfExists('basic_infos');
     }
 }

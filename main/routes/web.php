@@ -36,6 +36,7 @@ Route::get('/contact', 'FrontendController@contact')->name('contact');
 Route::get('/projects', 'BackendController@projects')->name('projects');
 Route::get('/project/{id}', 'BackendController@project')->name('project');
 Route::get('/gallery-data', 'BackendController@gallery')->name('gallery data');
+Route::get('/basic', 'BackendController@basicInfo')->name('basic data');
 
 Auth::routes();
 Route::get('/home', 'HomeController@index')->name('home');
