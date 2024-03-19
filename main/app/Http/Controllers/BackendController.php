@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers;
 
+use App\Model\Gallery;
 use App\Model\Projects;
 use Illuminate\Http\Request;
 
@@ -18,6 +19,12 @@ class BackendController extends Controller
         // dd($id,$request->all());
         $project = Projects::with('images','keyFeature','feature')->find($id);
         return $project;
+        // return view('frontend.pages.contact');
+    }
+    public function gallery()
+    {
+        $gallery = Gallery::all();
+        return $gallery;
         // return view('frontend.pages.contact');
     }
 }
