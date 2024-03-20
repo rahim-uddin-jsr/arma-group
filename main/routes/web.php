@@ -40,14 +40,32 @@ Route::get('/basic', 'BackendController@basicInfo')->name('basic data');
 
 Auth::routes();
 
-Route::middleware(['auth','roleManagement'])->group(function () {
+Route::middleware(['auth', 'roleManagement'])->group(function () {
 
     Route::prefix('dashboard')->group(function () {
         Route::get('/', 'HomeController@index')->name('home');
         Route::prefix('project')->group(function () {
+
+            //-------*********route for backend-------*********//
+
+            //addProject
+
             Route::get('/add', 'BackendController@addProjectIndex')->name('add project index');
+
+
+            // basicinfo
+
+            Route::get('/home', 'BackendController@index_basicinfo')->name('home');
+
+
+            //gallery
+
+            Route::get('/gallery', 'BackendController@index_gallery')->name('gallery');
+
+
 
         });
     });
 
-});;
+});
+;

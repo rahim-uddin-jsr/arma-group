@@ -1,10 +1,9 @@
 @extends('layouts.main')
 @section('content')
-<h1>add project index</h1>
-<div class="col-lg-6">
+<div class="col-lg-8 mx-auto">
     <div class="card mb-20">
         <div class="card-header">
-            Gutters
+            Add projects
         </div>
         <div class="card-body">
             <form class="row g-3">
@@ -32,10 +31,6 @@
                     <input type="text" class="form-control" id="inputAddress" placeholder="1234 Main St">
                 </div>
 
-                <div class="col-12">
-                    <label for="inputAddress2" class="form-label">Address 2</label>
-                    <input type="text" class="form-control" id="inputAddress2" placeholder="Apartment, studio, or floor">
-                </div>
                 <div class="col-md-6">
                     <label for="inputCity" class="form-label">City</label>
                     <input type="text" class="form-control" id="inputCity">
@@ -58,7 +53,30 @@
                             Check me out
                         </label>
                     </div>
-
+                </div>
+                <div class="col-12">
+                    <div class="card component-jquery-uploader">
+                        <div class="card-body">
+                            <div class="row">
+                                {{-- <div class="col-xxl-3 col-sm-4">
+                                    <div class="add-thumbnail product-image-upload product-image-upload-2">
+                                        <div class="part-txt">
+                                            <h5>Single Upload</h5>
+                                        </div>
+                                        <input type="text" id="singleUpload">
+                                    </div>
+                                </div> --}}
+                                <div class="col-12">
+                                    <div class="add-gallery-img product-image-upload product-image-upload-2">
+                                        <div class="part-txt">
+                                            <h5>Upload Project Images</h5>
+                                        </div>
+                                        <input type="text" id="multipleUpload">
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
                 </div>
                 <div class="col-12">
                     <button type="submit" class="btn btn-primary">Sign in</button>
@@ -67,4 +85,19 @@
         </div>
     </div>
 </div>
+
+
+
+
 @endsection
+
+@push('script')
+<script src="{{asset('assets/backend/assets/vendor/js/jquery-3.6.0.min.js')}}"></script>
+<script src="{{asset('assets/backend/assets/vendor/js/jquery.overlayScrollbars.min.js')}}"></script>
+<script src="{{asset('assets/backend/assets/vendor/js/jquery.uploader.min.js')}}"></script>
+<script src="{{asset('assets/backend/assets/vendor/js/dropzone.min.js')}}"></script>
+<script src="{{asset('assets/backend/assets/vendor/js/ckeditor.js')}}"></script>
+<script src="{{asset('assets/backend/assets/vendor/js/bootstrap.bundle.min.js')}}"></script>
+<script src="{{asset('assets/backend/assets/js/main.js')}}"></script>
+<script src="{{asset('assets/backend/assets/js/dropzone-init.js')}}"></script>
+@endpush
