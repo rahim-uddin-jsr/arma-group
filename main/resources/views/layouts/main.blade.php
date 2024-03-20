@@ -5,6 +5,7 @@
     @yield('content')
 </div>
 
+@stack('script')
 @include('backend.inc.footer')
 
 

@@ -3,4 +3,8 @@
 @section('content')
 
 
+@push('script')
+
+
+@endpush
 @endsection
