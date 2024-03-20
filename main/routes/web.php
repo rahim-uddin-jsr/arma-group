@@ -40,7 +40,7 @@ Route::get('/basic', 'BackendController@basicInfo')->name('basic data');
 
 Auth::routes();
 
-Route::middleware(['auth'])->group(function () {
+Route::middleware(['auth','roleManagement'])->group(function () {
 
     Route::prefix('dashboard')->group(function () {
         Route::get('/', 'HomeController@index')->name('home');

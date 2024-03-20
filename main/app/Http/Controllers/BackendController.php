@@ -22,6 +22,7 @@ class BackendController extends Controller
         return $project;
         // return view('frontend.pages.contact');
     }
+
     public function gallery()
     {
         $gallery = Gallery::all();
