@@ -14,8 +14,11 @@
     <link rel="stylesheet" href="{{asset('assets/backend/assets/vendor/css/jquery.dataTables.min.css')}}">
     <link rel="stylesheet" href="{{asset('assets/backend/assets/vendor/css/daterangepicker.css')}}">
     <link rel="stylesheet" href="{{asset('assets/backend/assets/vendor/css/bootstrap.min.css')}}">
-    <link rel="stylesheet" href="{{asset('assets/backend/assets/css/style.css')}}">
     <link rel="stylesheet" id="primaryColor" href="{{asset('assets/backend/assets/css/blue-color.css')}}">
+    <link rel="stylesheet" href="{{asset('assets/backend/assets/vendor/css/dropzone.min.css')}}">
+    <link rel="stylesheet" href="{{asset('assets/backend/assets/vendor/css/jquery.uploader.css')}}">
+    <link rel="stylesheet" href="{{asset('assets/backend/assets/css/style.css')}}">
+
     <link rel="stylesheet" id="rtlStyle" href="#">
 </head>
 <body class="body-padding body-p-top light-theme">
