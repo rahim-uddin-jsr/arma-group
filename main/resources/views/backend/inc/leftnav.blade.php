@@ -8,8 +8,9 @@
                     <ul class="sidebar-link-group">
                         
                         <li class="sidebar-dropdown-item">
-                            <a href="" class="sidebar-link"><span class="nav-icon"><i class="fa-solid fa-house"></i></span> <span class="sidebar-txt">Home</span></a>
+                            <a href="{{route('home')}}" class="sidebar-link"><span class="nav-icon"><i class="fa-solid fa-house"></i></span> <span class="sidebar-txt">Home</span></a>
                         </li>
+                       
                         <li class="sidebar-dropdown-item">
                             <a role="button" class="sidebar-link has-sub" data-dropdown="hrmDropdown"><span class="nav-icon"><i class="fa-solid fa-address-card"></i></span> <span class="sidebar-txt">About Us </span></a>
                             <ul class="sidebar-dropdown-menu" id="hrmDropdown">
@@ -29,7 +30,7 @@
                             </ul>
                         </li>
                         <li class="sidebar-dropdown-item">
-                            <a href="calendar.html" class="sidebar-link"><span class="nav-icon"><i class="fa-regular fa-image"></i></span> <span class="sidebar-txt">Gallery</span></a>
+                            <a href="{{route('gallery')}}" class="sidebar-link"><span class="nav-icon"><i class="fa-regular fa-image"></i></span> <span class="sidebar-txt">Gallery</span></a>
                         </li>
                         <li class="sidebar-dropdown-item">
                             <a href="chat.html" class="sidebar-link"><span class="nav-icon"><i class="fa-solid fa-certificate"></i></span> <span class="sidebar-txt">Certification</span></a>

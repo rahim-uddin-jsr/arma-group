@@ -18,7 +18,7 @@ class BackendController extends Controller
     public function project(Request $request, $id)
     {
         // dd($id,$request->all());
-        $project = Projects::with('images','keyFeature','feature')->find($id);
+        $project = Projects::with('images', 'keyFeature', 'feature')->find($id);
         return $project;
         // return view('frontend.pages.contact');
     }
@@ -31,8 +31,20 @@ class BackendController extends Controller
     }
     public function basicInfo()
     {
-        $data =Basicinfo::all();
+        $data = Basicinfo::all();
         return $data;
         // return view('frontend.pages.contact');
+    }
+
+    // basicinfo
+    public function index_basicinfo()
+    {
+        return view('backend.pages.basicinfo');
+    }
+
+    //gallery
+    public function index_gallery()
+    {
+        return view('backend.pages.gallery');
     }
 }
