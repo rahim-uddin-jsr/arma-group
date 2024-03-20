@@ -39,5 +39,13 @@ Route::get('/gallery-data', 'BackendController@gallery')->name('gallery data');
 Route::get('/basic', 'BackendController@basicInfo')->name('basic data');
 
 Auth::routes();
-Route::get('/home', 'HomeController@index')->name('home');
 
+Route::middleware(['auth'])->group(function () {
+
+    Route::prefix('dashboard')->group(function () {
+        Route::get('/', 'HomeController@index')->name('home');
+        Route::get('/', 'HomeController@index')->name('home');
+        Route::get('/', 'HomeController@index')->name('home');
+    });
+
+});;
