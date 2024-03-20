@@ -2,11 +2,11 @@
 <div class="main-sidebar">
         <div class="main-menu">
             <ul class="sidebar-menu scrollable">
-                
+
                 <li class="sidebar-item">
                     <a role="button" class="sidebar-link-group-title has-sub">Dashboard</a>
                     <ul class="sidebar-link-group">
-                        
+
                         <li class="sidebar-dropdown-item">
                             <a href="" class="sidebar-link"><span class="nav-icon"><i class="fa-solid fa-house"></i></span> <span class="sidebar-txt">Home</span></a>
                         </li>
@@ -22,10 +22,11 @@
                         <li class="sidebar-dropdown-item">
                             <a role="button" class="sidebar-link has-sub" data-dropdown="ecommerceDropdown"><span class="nav-icon"><i class="fa-solid fa-check"></i></span> <span class="sidebar-txt">Project</span></a>
                             <ul class="sidebar-dropdown-menu" id="ecommerceDropdown">
+                                <li class="sidebar-dropdown-item"><a href="{{ route('add project index') }}" class="sidebar-link">Project add</a></li>
                                 <li class="sidebar-dropdown-item"><a href="all-customer.html" class="sidebar-link">Completed Projects</a></li>
                                 <li class="sidebar-dropdown-item"><a href="add-product.html" class="sidebar-link">On Going Projects</a></li>
                                 <li class="sidebar-dropdown-item"><a href="all-product.html" class="sidebar-link">Upcoming Projects</a></li>
-                                
+
                             </ul>
                         </li>
                         <li class="sidebar-dropdown-item">
@@ -37,8 +38,8 @@
                         <li class="sidebar-dropdown-item">
                             <a href="email.html" class="sidebar-link"><span class="nav-icon"><i class="fa-light fa-envelope"></i></span> <span class="sidebar-txt">Career</span></a>
                         </li>
-                       
-                       
+
+
                         <li class="sidebar-dropdown-item">
                             <a href="contact.html" class="sidebar-link"><span class="nav-icon"><i class="fa-light fa-user-plus"></i></span> <span class="sidebar-txt">Contact</span></a>
                         </li>

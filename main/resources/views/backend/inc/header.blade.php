@@ -7,7 +7,7 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>eCommerce Dashboard | Digi</title>
-    
+
     <link rel="shortcut icon" href="favicon.png">
     <link rel="stylesheet" href="{{asset('assets/backend/assets/vendor/css/all.min.css')}}">
     <link rel="stylesheet" href="{{asset('assets/backend/assets/vendor/css/OverlayScrollbars.min.css')}}">
@@ -37,7 +37,7 @@
                     <div class="logo-big">
                         <a href="index.html">
                             <img src="{{asset('assets/backend/assets/images/logo-black.png')}}" alt="Logo">
-                           
+
                         </a>
                     </div>
                     <div class="logo-small">
@@ -76,7 +76,7 @@
                                     </select>
                                 </div>
 
-                   
+
 
                                 <button class="header-btn fullscreen-btn" id="btnFullscreen"><i class="fa-light fa-expand"></i></button>
                             </div>
@@ -491,25 +491,3 @@
         </div>
     </div>
     <!-- right sidebar end -->
-
-    <script src="{{asset('assets/backend/assets/vendor/js/jquery-3.6.0.min.js')}}"></script>
-    <script src="{{asset('assets/backend/assets/vendor/js/jquery.overlayScrollbars.min.js')}}"></script>
-    <script src="{{asset('assets/backend/assets/vendor/js/apexcharts.js')}}"></script>
-    <script src="{{asset('assets/backend/assets/vendor/js/jquery.dataTables.min.js')}}"></script>
-    <script src="{{asset('assets/backend/assets/vendor/js/moment.min.js')}}"></script>
-    <script src="{{asset('assets/backend/assets/vendor/js/daterangepicker.js')}}"></script>
-    <script src="{{asset('assets/backend/assets/vendor/js/bootstrap.bundle.min.js')}}"></script>
-    <script src="{{asset('assets/backend/assets/js/dashboard.js')}}"></script>
-    <script src="{{asset('assets/backend/assets/js/main.js')}}"></script>
-    <!-- for demo purpose -->
-    <script>
-        var rtlReady = $('html').attr('dir', 'ltr');
-        if (rtlReady !== undefined) {
-            localStorage.setItem('layoutDirection', 'ltr');
-        }
-    </script>
-    <!-- for demo purpose -->
-</body>
-
-<!-- Mirrored from html-digiboard.codebasket.xyz/index.html by HTTrack Website Copier/3.x [XR&CO'2014], Sat, 16 Mar 2024 06:47:03 GMT -->
-</html>

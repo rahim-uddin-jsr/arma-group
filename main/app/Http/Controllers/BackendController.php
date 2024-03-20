@@ -35,4 +35,12 @@ class BackendController extends Controller
         return $data;
         // return view('frontend.pages.contact');
     }
+    // projects section start
+    public function addProjectIndex()
+    {
+        // $data =Basicinfo::all();
+        return view('backend.pages.add-project');
+    }
+
+    // projects section end
 }

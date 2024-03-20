@@ -44,8 +44,10 @@ Route::middleware(['auth','roleManagement'])->group(function () {
 
     Route::prefix('dashboard')->group(function () {
         Route::get('/', 'HomeController@index')->name('home');
-        Route::get('/', 'HomeController@index')->name('home');
-        Route::get('/', 'HomeController@index')->name('home');
+        Route::prefix('project')->group(function () {
+            Route::get('/add', 'BackendController@addProjectIndex')->name('add project index');
+
+        });
     });
 
 });;
