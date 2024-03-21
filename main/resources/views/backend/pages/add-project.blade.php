@@ -92,12 +92,8 @@
 @endsection
 
 @push('script')
-<script src="{{asset('assets/backend/assets/vendor/js/jquery-3.6.0.min.js')}}"></script>
-<script src="{{asset('assets/backend/assets/vendor/js/jquery.overlayScrollbars.min.js')}}"></script>
+
 <script src="{{asset('assets/backend/assets/vendor/js/jquery.uploader.min.js')}}"></script>
-<script src="{{asset('assets/backend/assets/vendor/js/dropzone.min.js')}}"></script>
 <script src="{{asset('assets/backend/assets/vendor/js/ckeditor.js')}}"></script>
-<script src="{{asset('assets/backend/assets/vendor/js/bootstrap.bundle.min.js')}}"></script>
-<script src="{{asset('assets/backend/assets/js/main.js')}}"></script>
 <script src="{{asset('assets/backend/assets/js/dropzone-init.js')}}"></script>
 @endpush
