@@ -56,18 +56,27 @@ Route::middleware(['auth', 'roleManagement'])->group(function () {
             Route::put('/edit/{id}', 'BackendController@editProject')->name('edit single project');
             Route::get('/image-delete/{id}', 'BackendController@deleteProjectImage')->name('delete project image');
 
-            // basicinfo
+        });
 
-            Route::get('/home', 'BackendController@index_basicinfo')->name('home');
+           // basicinfo
+
+           Route::get('/home', 'BackendController@index_basicinfo')->name('home');
+
 
 
             //gallery
 
             Route::get('/gallery', 'BackendController@index_gallery')->name('gallery');
+            Route::post('/gallery', 'BackendController@store_gallery')->name('gallery_store');
+
+            //gallery-table
+            Route::get('/gallery_table', 'BackendController@index_gallery_table')->name('gallery_table');
 
 
 
-        });
+
+
+
     });
 
 });

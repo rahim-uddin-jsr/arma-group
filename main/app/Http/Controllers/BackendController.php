@@ -189,4 +189,44 @@ class BackendController extends Controller
     {
         return view('backend.pages.gallery');
     }
+    public function store_gallery(Request $request)
+    {
+
+        $gallary = new Gallery;
+        $gallary->title = $request->input('title');
+        $gallary->position = $request->input('position');
+
+        if ($request->hasFile('image')) {
+            $file = $request->file('image');
+            $extension = $file->getClientOriginalExtension();
+            $filename = 'image_' . time() . '.' . $extension;
+            $file->move('assets/uploads/gallery/', $filename);
+            $gallary->image = $filename;
+        }
+
+
+        $gallary->save();
+        return redirect('dashboard/gallery_table')->with('status', 'image added successfully');
+
+    }
+
+
+
+    // gallery table
+
+    public function index_gallery_table()
+    {
+
+        //gallery-phpmyadminfetch
+
+
+        $gallaryshow = Gallery::all();
+        return view('backend.pages.gallerytable', compact('gallaryshow'));
+    }
+
+
+
+
+
+    //gallery section start
 }

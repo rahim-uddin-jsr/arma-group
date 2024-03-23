@@ -30,7 +30,7 @@
                             </ul>
                         </li>
                         <li class="sidebar-dropdown-item">
-                            <a href="{{route('gallery')}}" class="sidebar-link"><span class="nav-icon"><i class="fa-regular fa-image"></i></span> <span class="sidebar-txt">Gallery</span></a>
+                            <a href="{{route('gallery_table')}}" class="sidebar-link"><span class="nav-icon"><i class="fa-regular fa-image"></i></span> <span class="sidebar-txt">Gallery</span></a>
                         </li>
                         <li class="sidebar-dropdown-item">
                             <a href="chat.html" class="sidebar-link"><span class="nav-icon"><i class="fa-solid fa-certificate"></i></span> <span class="sidebar-txt">Certification</span></a>
