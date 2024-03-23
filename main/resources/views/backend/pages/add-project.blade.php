@@ -7,31 +7,7 @@
                 {{-- {{ asset('storage/app/photos/czpHev3ldVR2KcCA0nnUJQSxbDtqBLEUUJmU29et.jpg') }} --}}
                 Add projects
             </div>
-            <div class="card-body">
-                <!--       //status notification code start       -->
-                @if (session('status'))
-                <div class="alert alert-success" role="alert">
-                    {{ session('status') }}
-                </div>
-                <script>
-                    // Automatically close the alert after 5 seconds
-                    setTimeout(function () {
-                        $('.alert').slideUp(500);
-                    }, 2000);
-                </script>
-                <style>
-                    .alert {
-                        / Add some padding to make the text look better /
-                        padding: 12px;
-                        / Add transitions to animate height changes /
-                        transition: height 0.20s ease;
-
-                        overflow: hidden;
-                        / Hide overflow to prevent abrupt closing /
-                    }
-                </style>
-                @endif
-           <!--       //status notification code end       -->
+@include('inc.status-show')
                 <form action="{{ route('add project') }}" enctype="multipart/form-data" method="post" class="row g-3">
                     @method('post')
                     @csrf
@@ -108,9 +84,9 @@
                         <label for="inputState" class="form-label">Project Status</label>
                         <select id="inputState" name="status" class="form-select">
                             <option disabled selected>Choose...</option>
-                            <option>Upcomming project</option>
-                            <option>On going project</option>
-                            <option>Compleated project</option>
+                            <option value="upcoming">Upcomming project</option>
+                            <option value="ongoing">On going project</option>
+                            <option value="completed">Compleated project</option>
                         </select>
                     </div>
                     <div class="col-12">

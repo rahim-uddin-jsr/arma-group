@@ -33,7 +33,6 @@ Route::get('/gallery', 'FrontendController@gallery')->name('gallery');
 Route::get('/certrfication', 'FrontendController@certrfication')->name('certrfication');
 Route::get('/careers', 'FrontendController@career')->name('Career');
 Route::get('/contact', 'FrontendController@contact')->name('contact');
-Route::get('/projects', 'BackendController@projects')->name('projects');
 Route::get('/project/{id}', 'BackendController@project')->name('project');
 Route::get('/gallery-data', 'BackendController@gallery')->name('gallery data');
 Route::get('/basic', 'BackendController@basicInfo')->name('basic data');
@@ -45,14 +44,14 @@ Route::middleware(['auth', 'roleManagement'])->group(function () {
     Route::prefix('dashboard')->group(function () {
         Route::get('/', 'HomeController@index')->name('home');
         Route::prefix('project')->group(function () {
-
             //-------*********route for backend-------*********//
-
-            //addProject
-
+            //Project
             Route::get('/add', 'BackendController@addProjectIndex')->name('add project index');
             Route::post('/add', 'BackendController@addProject')->name('add project');
-
+            Route::get('/upcoming', 'BackendController@upcomingProjects')->name('upcoming index');
+            Route::get('/ongoing', 'BackendController@ongoingProjects')->name('ongoing index');
+            Route::get('/completed', 'BackendController@completedProjects')->name('completed index');
+            Route::get('/delete/{id}', 'BackendController@deleteProject')->name('delete project');
 
             // basicinfo
 
