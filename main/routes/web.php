@@ -51,6 +51,7 @@ Route::middleware(['auth', 'roleManagement'])->group(function () {
             //addProject
 
             Route::get('/add', 'BackendController@addProjectIndex')->name('add project index');
+            Route::post('/add', 'BackendController@addProject')->name('add project');
 
 
             // basicinfo

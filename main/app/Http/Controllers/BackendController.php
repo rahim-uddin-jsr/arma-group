@@ -4,6 +4,9 @@ namespace App\Http\Controllers;
 
 use App\Model\Basicinfo;
 use App\Model\Gallery;
+use App\Model\KeyFeature;
+use App\Model\ProjectFeature;
+use App\Model\ProjectImage;
 use App\Model\Projects;
 use Illuminate\Http\Request;
 
@@ -40,6 +43,53 @@ class BackendController extends Controller
     {
         // $data =Basicinfo::all();
         return view('backend.pages.add-project');
+    }
+    public function addProject(Request $request)
+    {
+        $project_Id = Projects::insertGetId([
+            'first_name' => $request->first_name,
+            'last_name' => $request->last_name,
+            'location' => $request->address,
+            'status' => $request->status,
+
+        ]);
+        $features = request('feature');
+        // dd(request('feature'));
+        foreach ($features as $key => $value) {
+            ProjectFeature::create([
+                'special_feature' => $value,
+                'project_id' => $project_Id,
+            ]);
+        }
+        $keyInfo = request('key_info');
+        // dd(request('feature'));
+        foreach ($keyInfo as $key => $value) {
+            KeyFeature::create([
+                'key_info' => $value,
+                'project_id' => $project_Id,
+            ]);
+        }
+
+        if ($request->hasFile('project_images')) {
+            $files = $request->file('project_images');
+            foreach ($files as $key => $file) {
+                // $extension = $file->getClientOriginalExtension();
+                // $filename = 'image_' . time() . '.' . $extension;
+                // $filename = $file->store('photos');
+                $extension = $file->getClientOriginalExtension();
+                // $name = $file->getClientOriginalName();
+                $filename = uniqid() . Date('His') . '.' . $extension;
+                $file->move('assets/uploads/projects-images', $filename);
+                ProjectImage::create([
+                    'image' => 'assets/uploads/projects-images/' . $filename,
+                    'position' => $key,
+                    'project_id' => $project_Id,
+                ]);
+            }
+        }
+        return back()->with('status', 'Successfully added!');
+        // $data =Basicinfo::all();
+        // return view('backend.pages.add-project');
     }
 
     // projects section end
