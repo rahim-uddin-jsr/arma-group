@@ -23,9 +23,9 @@
                             <a role="button" class="sidebar-link has-sub" data-dropdown="ecommerceDropdown"><span class="nav-icon"><i class="fa-solid fa-check"></i></span> <span class="sidebar-txt">Project</span></a>
                             <ul class="sidebar-dropdown-menu" id="ecommerceDropdown">
                                 <li class="sidebar-dropdown-item"><a href="{{ route('add project index') }}" class="sidebar-link">Project add</a></li>
-                                <li class="sidebar-dropdown-item"><a href="all-customer.html" class="sidebar-link">Completed Projects</a></li>
-                                <li class="sidebar-dropdown-item"><a href="add-product.html" class="sidebar-link">On Going Projects</a></li>
-                                <li class="sidebar-dropdown-item"><a href="all-product.html" class="sidebar-link">Upcoming Projects</a></li>
+                                <li class="sidebar-dropdown-item"><a href="{{ route('upcoming index') }}" class="sidebar-link">Upcoming Projects</a></li>
+                                <li class="sidebar-dropdown-item"><a href="{{ route('ongoing index') }}" class="sidebar-link">On Going Projects</a></li>
+                                <li class="sidebar-dropdown-item"><a href="{{ route('completed index') }}" class="sidebar-link">Completed Projects</a></li>
 
                             </ul>
                         </li>
