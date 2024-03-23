@@ -53,18 +53,27 @@ Route::middleware(['auth', 'roleManagement'])->group(function () {
             Route::get('/add', 'BackendController@addProjectIndex')->name('add project index');
 
 
-            // basicinfo
+        });
 
-            Route::get('/home', 'BackendController@index_basicinfo')->name('home');
+           // basicinfo
+
+           Route::get('/home', 'BackendController@index_basicinfo')->name('home');
+
 
 
             //gallery
 
             Route::get('/gallery', 'BackendController@index_gallery')->name('gallery');
+            Route::post('/gallery', 'BackendController@store_gallery')->name('gallery_store');
+
+            //gallery-table
+            Route::get('/gallery_table', 'BackendController@index_gallery_table')->name('gallery_table');
 
 
 
-        });
+
+
+
     });
 
 });

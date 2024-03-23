@@ -12,6 +12,7 @@
     <link rel="stylesheet" href="{{asset('assets/backend/assets/vendor/css/all.min.css')}}">
     <link rel="stylesheet" href="{{asset('assets/backend/assets/vendor/css/OverlayScrollbars.min.css')}}">
     <link rel="stylesheet" href="{{asset('assets/backend/assets/vendor/css/jquery.dataTables.min.css')}}">
+    <link rel="stylesheet" href="{{asset('assets/backend/assets/vendor/css/select2.min.css')}}">
     <link rel="stylesheet" href="{{asset('assets/backend/assets/vendor/css/daterangepicker.css')}}">
     <link rel="stylesheet" href="{{asset('assets/backend/assets/vendor/css/bootstrap.min.css')}}">
     <link rel="stylesheet" id="primaryColor" href="{{asset('assets/backend/assets/css/blue-color.css')}}">
