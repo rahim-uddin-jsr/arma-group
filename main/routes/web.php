@@ -69,6 +69,10 @@ Route::middleware(['auth', 'roleManagement'])->group(function () {
             //gallery-table
             Route::get('/gallery_table', 'BackendController@index_gallery_table')->name('gallery_table');
 
+           //gallery-table-edit/update
+           Route::get('/gallery_table_edit/{id}', 'BackendController@gallery_table_edit')->name('gallery_table_edit');
+           Route::put('/gallery_table_update/{id}', 'BackendController@gallery_table_update')->name('gallery_table_update');
+
 
 
 

@@ -6,6 +6,7 @@ use App\Model\Basicinfo;
 use App\Model\Gallery;
 use App\Model\Projects;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\File;
 
 class BackendController extends Controller
 {
@@ -76,6 +77,40 @@ class BackendController extends Controller
 
     }
 
+    public function gallery_table_edit($id)
+    {
+        $gallary = Gallery::findOrFail($id);
+        return view('backend.pages.editgallery', compact('gallary'))
+            ->with('gallary', $gallary);
+
+    }
+
+    public function gallery_table_update(Request $request, $id)
+    {
+        $gallary = Gallery::findOrFail($id);
+
+
+
+        $gallary->title = $request->input('title');
+        $gallary->position = $request->input('position');
+
+        if ($request->hasFile('image')) {
+            $destination = 'public/uploads/icons/' . $gallary->image;
+            if (File::exists($destination)) {
+                File::delete($destination);
+            }
+            $file = $request->file('image');
+            $extension = $file->getClientOriginalExtension();
+            $filename = time() . '.' . $extension;
+            $file->move('assets/uploads/gallery', $filename);
+            $gallary->image = $filename;
+        }
+
+
+        $gallary->update();
+        return redirect('dashboard/gallery_table')->with('status', 'data updated successfully');
+
+    }
 
 
     // gallery table
