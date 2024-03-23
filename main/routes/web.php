@@ -52,6 +52,9 @@ Route::middleware(['auth', 'roleManagement'])->group(function () {
             Route::get('/ongoing', 'BackendController@ongoingProjects')->name('ongoing index');
             Route::get('/completed', 'BackendController@completedProjects')->name('completed index');
             Route::get('/delete/{id}', 'BackendController@deleteProject')->name('delete project');
+            Route::get('/edit/{id}', 'BackendController@editProjectIndex')->name('edit project view');
+            Route::put('/edit/{id}', 'BackendController@editProject')->name('edit single project');
+            Route::get('/image-delete/{id}', 'BackendController@deleteProjectImage')->name('delete project image');
 
             // basicinfo
 

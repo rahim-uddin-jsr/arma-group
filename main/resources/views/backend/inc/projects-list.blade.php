@@ -41,7 +41,7 @@
                                     <button class="btn btn-sm btn-icon btn-primary" data-bs-toggle="dropdown" aria-expanded="false"><i class="fa-regular fa-ellipsis"></i></button>
                                     <ul class="digi-dropdown-menu dropdown-menu dropdown-menu-sm dropdown-menu-end">
                                         <li class="p-0"><a href="#" class="dropdown-item"><span class="dropdown-icon"><i class="fa-light fa-eye"></i></span> Details</a></li>
-                                        <li class="p-0"><a href="#" class="dropdown-item"><span class="dropdown-icon"><i class="fa-light fa-pen"></i></span> Edit</a></li>
+                                        <li class="p-0"><a href="{{ route('edit project view',$project->id) }}" class="dropdown-item"><span class="dropdown-icon"><i class="fa-light fa-pen"></i></span> Edit</a></li>
                                         <li class="p-0"><a href="{{ route('delete project',$project->id) }}" class="dropdown-item"><span class="dropdown-icon"><i class="fa-light fa-trash"></i></span> Delete</a></li>
                                     </ul>
                                 </div>
