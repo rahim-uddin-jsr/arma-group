@@ -13,12 +13,6 @@ use Illuminate\Support\Facades\File;
 
 class BackendController extends Controller
 {
-    public function projects()
-    {
-        $projects = Projects::all();
-        return $projects;
-        // return view('frontend.pages.contact');
-    }
     // projects section start
     public function addProjectIndex()
     {
