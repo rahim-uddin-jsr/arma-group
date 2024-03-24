@@ -28,12 +28,12 @@ Route::get('/chairman-message', 'FrontendController@chairmanMessage')->name('cha
 Route::get('/completed-project', 'FrontendController@completedProject')->name('completed project');
 Route::get('/upcoming-project', 'FrontendController@upcomingProject')->name('upcoming project');
 Route::get('/on-going-project', 'FrontendController@onGoingProject')->name('on going project');
+Route::get('/project/{id}', 'FrontendController@projectDetails')->name('project details');
 // Project routes end
 Route::get('/gallery', 'FrontendController@gallery')->name('gallery');
 Route::get('/certrfication', 'FrontendController@certrfication')->name('certrfication');
 Route::get('/careers', 'FrontendController@career')->name('Career');
 Route::get('/contact', 'FrontendController@contact')->name('contact');
-Route::get('/project/{id}', 'BackendController@project')->name('project');
 Route::get('/gallery-data', 'BackendController@gallery')->name('gallery data');
 Route::get('/basic', 'BackendController@basicInfo')->name('basic data');
 

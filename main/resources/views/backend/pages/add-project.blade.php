@@ -221,6 +221,7 @@
     <script src="{{ asset('assets/backend/assets/vendor/js/ckeditor.js') }}"></script>
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
     <script>
+        console.log(document.location.origin)
         function deleteImage(id) {
             event.preventDefault()
             Swal.fire({
@@ -233,6 +234,7 @@
                 confirmButtonText: "Yes, delete it!"
             }).then((result) => {
                 if (result.isConfirmed) {
+
                     $.get('/arma-group/dashboard/project/image-delete/' + id, function(data, status) {
                         Swal.fire({
                             title: "Deleted!",
