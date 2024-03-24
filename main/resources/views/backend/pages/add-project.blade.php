@@ -176,19 +176,25 @@
                                     </div>
                                 </div> --}}
                                 <div class="col-12">
-                                    <div class="add-gallery-img product-image-upload product-image-upload-2">
-                                        @if ($edit)
+                                    @if ($edit)
+                                        <div class="row row-cols-4">
                                             @foreach ($project->images as $image)
                                                 {{-- {{ $image }} --}}
-                                                <div id="imageCard{{ $image->id }}" class="avatar avatar-lg">
-
-                                                    <img src="{{ url($image->image) }}" class="rounded" alt="user">
-                                                    <button type="button" onclick="deleteImage({{ $image->id }})"
-                                                        class="btn btn-sm btn-danger">Remove</button>
+                                                <div id="imageCard{{ $image->id }}" class="">
+                                                    <div class="d-flex flex-column w-100">
+                                                        <img style="height: 100px" src="{{ url($image->image) }}"
+                                                            class="img-fluid" alt="user">
+                                                        <button type="button" onclick="deleteImage({{ $image->id }})"
+                                                            class="btn btn-sm btn-danger">Remove</button>
+                                                        {{-- <button type="button" onclick="deleteImage({{ $image->id }})" --}}
+                                                        {{-- class="btn btn-sm btn-primary">Make Primary</button> --}}
+                                                    </div>
                                                 </div>
                                             @endforeach
-                                        @endif
-                                        <div class="part-txt">
+                                        </div>
+                                    @endif
+                                    <div class="part-txt">
+                                        <div class="mt-3 add-gallery-img product-image-upload product-image-upload-2 ">
                                             <h5>Upload Project Images</h5>
                                         </div>
                                         <input class="hidden" multiple name='project_images[]' type="file"
@@ -222,6 +228,7 @@
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
     <script>
         console.log(document.location.origin)
+
         function deleteImage(id) {
             event.preventDefault()
             Swal.fire({
@@ -234,16 +241,15 @@
                 confirmButtonText: "Yes, delete it!"
             }).then((result) => {
                 if (result.isConfirmed) {
-
                     $.get('/arma-group/dashboard/project/image-delete/' + id, function(data, status) {
                         Swal.fire({
                             title: "Deleted!",
                             text: "Your file has been deleted.",
                             icon: "success"
                         });
-$(document).ready(function () {
-    $('#imageCard'+id).hide();
-});
+                        $(document).ready(function() {
+                            $('#imageCard' + id).hide();
+                        });
                     });
                 }
             });
