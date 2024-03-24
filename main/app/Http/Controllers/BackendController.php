@@ -56,39 +56,36 @@ class BackendController extends Controller
     {
         return view('backend.pages.gallery');
     }
+
     public function store_gallery(Request $request)
-    {
+{
+    $gallary = new Gallery;
+    $gallary->title = $request->input('title');
+    $gallary->position = $request->input('position');
 
-        $gallary = new Gallery;
-        $gallary->title = $request->input('title');
-        $gallary->position = $request->input('position');
+    // Check if the position is provided and not empty
+    if (!empty($gallary->position)) {
+        // Check duplicate position only if position is provided
+        $check = Gallery::where('position', $gallary->position)->first();
 
-      // check duplicate position
-
-      $check = Gallery::where ([
-        ['position' ,'=', $gallary->position],
-      ])->first();
-
-      if($check){
-        return redirect('dashboard/gallery')->with('status' , 'Duplicate position, data entry unsuccessful');
-    }
-
-     // end duplicate position
-
-
-        if ($request->hasFile('image')) {
-            $file = $request->file('image');
-            $extension = $file->getClientOriginalExtension();
-            $filename = 'image_' . time() . '.' . $extension;
-            $file->move('assets/uploads/gallery/', $filename);
-            $gallary->image = $filename;
+        if ($check) {
+            return redirect('dashboard/gallery')->with('status', 'Duplicate position, data entry unsuccessful');
         }
-
-
-        $gallary->save();
-        return redirect('dashboard/gallery_table')->with('status', 'image added successfully');
-
     }
+
+
+    if ($request->hasFile('image')) {
+        $file = $request->file('image');
+        $extension = $file->getClientOriginalExtension();
+        $filename = 'image_' . time() . '.' . $extension;
+        $file->move('assets/uploads/gallery/', $filename);
+        $gallary->image = $filename;
+    }
+
+    $gallary->save();
+    return redirect('dashboard/gallery_table')->with('status', 'Image added successfully');
+}
+
 
     public function gallery_table_edit($id)
     {
@@ -99,44 +96,44 @@ class BackendController extends Controller
     }
 
     public function gallery_table_update(Request $request, $id)
-    {
-        $gallary = Gallery::findOrFail($id);
+{
+    $gallary = Gallery::findOrFail($id);
 
+    $gallary->title = $request->input('title');
+    $gallary->position = $request->input('position');
 
+    // Check if position is not null and not an empty string
+    if ($gallary->position !== null && $gallary->position !== '') {
+        // Check duplicate position
+        $check = Gallery::where('position', $gallary->position)
+                        ->where('id', '!=', $id) // Exclude the current gallery record
+                        ->first();
 
-        $gallary->title = $request->input('title');
-        $gallary->position = $request->input('position');
-
-         // check duplicate position
-
-      $check = Gallery::where ([
-        ['position' ,'=', $gallary->position],
-      ])->first();
-
-      if($check){
-        return back()->with('status' , 'Duplicate position, data entry unsuccessful');
+        if ($check) {
+            return back()->with('status', 'Duplicate position, data entry unsuccessful');
+        }
     }
 
-     // end duplicate position
-
-        if ($request->hasFile('image')) {
-            $destination = 'public/uploads/gallery/' . $gallary->image;
-            if (File::exists($destination)) {
-                File::delete($destination);
-            }
-            $file = $request->file('image');
-            $extension = $file->getClientOriginalExtension();
-            $filename = time() . '.' . $extension;
-            $file->move('assets/uploads/gallery', $filename);
-            $gallary->image = $filename;
+    // Handle image upload
+    if ($request->hasFile('image')) {
+        // Delete previous image
+        $destination = 'public/uploads/gallery/' . $gallary->image;
+        if (File::exists($destination)) {
+            File::delete($destination);
         }
 
-
-        $gallary->update();
-        return redirect('dashboard/gallery_table')->with('status', 'data updated successfully');
-
+        // Upload new image
+        $file = $request->file('image');
+        $extension = $file->getClientOriginalExtension();
+        $filename = time() . '.' . $extension;
+        $file->move('assets/uploads/gallery', $filename);
+        $gallary->image = $filename;
     }
 
+    $gallary->update();
+
+    return redirect('dashboard/gallery_table')->with('status', 'Data updated successfully');
+}
 
 
 

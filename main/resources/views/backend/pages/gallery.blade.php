@@ -39,7 +39,7 @@
 
 
                         <div class="col-12">
-                            <label for="formGroupExampleInput" class="form-label">Title</label>
+                            <label for="formGroupExampleInput" class="form-label">Title*</label>
                             <input type="text" name="title" class="form-control" id="formGroupExampleInput"
                                 placeholder="Enter Title">
                         </div>
@@ -49,7 +49,7 @@
                                 placeholder="Add image position">
                         </div>
                         <div class="col-sm-6">
-                            <label for="formFileLg" class="form-label">Image</label>
+                            <label for="formFileLg" class="form-label">Image*</label>
                             <input class="form-control form-control-lg" name="image" id="formFileLg" type="file">
                         </div>
 

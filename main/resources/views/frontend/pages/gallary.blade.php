@@ -28,13 +28,29 @@
     <div class="container">
         <div class="row">
             <div class="row">
+                @foreach ($gallery->sortBy('position') as $gal)
+                    @if ($gal->position !== null)
+                        <!-- If position is not null, display the image -->
+                        <div class="col-lg-3 col-sm-4 col-6">
+                            <a href="#" title="{{ $gal->title }}">
+                                <img src="{{ asset('assets/uploads/gallery/' . $gal->image) }}"
+                                    class="thumbnail img-responsive">
+                            </a>
+                        </div>
+                    @endif
+                @endforeach
 
-                @foreach ($gallery as $gal)
-                    <div class="col-lg-3 col-sm-4 col-6"><a href="#" title={{ $gal->title }}><img
-                                src="{{ asset('assets/uploads/gallery/' . $gal->image) }}"
-                                class="thumbnail img-responsive"></a>
+                @foreach ($gallery->where('position', null) as $gal)
+                    <!-- Display images with null position -->
+                    <div class="col-lg-3 col-sm-4 col-6">
+                        <a href="#" title="{{ $gal->title }}">
+                            <img src="{{ asset('assets/uploads/gallery/' . $gal->image) }}"
+                                class="thumbnail img-responsive">
+                        </a>
                     </div>
                 @endforeach
+
+
             </div>
         </div>
     </div>
