@@ -82,9 +82,10 @@ class BackendController extends Controller
         $project = ProjectImage::find($id);
         $isDelete=$project->delete();
         if ($isDelete) {
-            return back()->with('status', 'Deleted Successfully!');
+            response('deleted',200);
+        }else{
+            response('something went wrong',403);
         }
-        return ('something went wrong');
     }
     public function editProject(Request $request, $id)
     {

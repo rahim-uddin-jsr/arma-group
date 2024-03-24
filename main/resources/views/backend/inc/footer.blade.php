@@ -11,6 +11,7 @@
 <script src="{{ asset('assets/backend/assets/vendor/js/bootstrap.bundle.min.js') }}"></script>
 <script src="{{ asset('assets/backend/assets/js/main.js') }}"></script>
 
+
 <!-- for demo purpose -->
 <script>
     var rtlReady = $('html').attr('dir', 'ltr');

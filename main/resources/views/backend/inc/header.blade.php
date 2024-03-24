@@ -19,7 +19,12 @@
     <link rel="stylesheet" href="{{asset('assets/backend/assets/vendor/css/dropzone.min.css')}}">
     <link rel="stylesheet" href="{{asset('assets/backend/assets/vendor/css/jquery.uploader.css')}}">
     <link rel="stylesheet" href="{{asset('assets/backend/assets/css/style.css')}}">
-
+    <script src="
+    https://cdn.jsdelivr.net/npm/sweetalert2@11.10.7/dist/sweetalert2.all.min.js
+    "></script>
+    <link href="
+    https://cdn.jsdelivr.net/npm/sweetalert2@11.10.7/dist/sweetalert2.min.css
+    " rel="stylesheet">
     <link rel="stylesheet" id="rtlStyle" href="#">
 </head>
 <body class="body-padding body-p-top light-theme">
