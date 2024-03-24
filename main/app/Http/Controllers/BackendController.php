@@ -63,6 +63,19 @@ class BackendController extends Controller
         $gallary->title = $request->input('title');
         $gallary->position = $request->input('position');
 
+      // check duplicate position
+
+      $check = Gallery::where ([
+        ['position' ,'=', $gallary->position],
+      ])->first();
+
+      if($check){
+        return redirect('dashboard/gallery')->with('status' , 'Duplicate position, data entry unsuccessful');
+    }
+
+     // end duplicate position
+
+
         if ($request->hasFile('image')) {
             $file = $request->file('image');
             $extension = $file->getClientOriginalExtension();
@@ -94,8 +107,20 @@ class BackendController extends Controller
         $gallary->title = $request->input('title');
         $gallary->position = $request->input('position');
 
+         // check duplicate position
+
+      $check = Gallery::where ([
+        ['position' ,'=', $gallary->position],
+      ])->first();
+
+      if($check){
+        return back()->with('status' , 'Duplicate position, data entry unsuccessful');
+    }
+
+     // end duplicate position
+
         if ($request->hasFile('image')) {
-            $destination = 'public/uploads/icons/' . $gallary->image;
+            $destination = 'public/uploads/gallery/' . $gallary->image;
             if (File::exists($destination)) {
                 File::delete($destination);
             }
@@ -113,6 +138,8 @@ class BackendController extends Controller
     }
 
 
+
+
     // gallery table
 
     public function index_gallery_table()
@@ -125,9 +152,16 @@ class BackendController extends Controller
         return view('backend.pages.gallerytable', compact('gallaryshow'));
     }
 
+    public function gallery_table_delete($id)
+    {
+
+        $gallary = Gallery::findOrFail($id);
+        $gallary->delete();
+        return redirect('/dashboard/gallery_table')->with('status', 'data deleted successfully');
+    }
 
 
 
 
-    //gallery section start
+    //gallery section end
 }

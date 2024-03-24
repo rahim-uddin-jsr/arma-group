@@ -57,7 +57,7 @@
 
                             <th>Title</th>
                             <th>Image</th>
-                            <th>Poaition</th>
+                            <th>Position</th>
                             <th>Action</th>
                         </tr>
                     </thead>
@@ -77,9 +77,15 @@
                                                 class="fa-light fa-pen-to-square"></i></a>
 
 
+                                        <form action="{{ route('gallery_table_delete', ['id' => $show->id]) }}"
+                                            method="POST" enctype="multipart/form-data">
+                                            {{ csrf_field() }}
+                                            {{ method_field('DELETE') }}
+
+                                            <button type="submit"><i class="fa-light fa-trash"></i></button>
+                                        </form>
 
 
-                                        <button><i class="fa-light fa-trash"></i></button>
 
                                     </div>
                                 </td>

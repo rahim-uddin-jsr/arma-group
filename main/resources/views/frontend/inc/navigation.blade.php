@@ -36,7 +36,7 @@
                                         <li><a href="{{ route('upcoming project') }}">Upcoming Project</a></li>
                                     </ul>
                                 </li>
-                                <li><a href="{{ route('gallery') }}">Gallery</a></li>
+                                <li><a href="{{ route('gallary') }}">Gallery</a></li>
                                 <li><a href="{{ route('certrfication') }}">Certification</a></li>
                                 <li><a href="{{ route('Career') }}">Career</a></li>
                                 <li><a href="{{ route('contact') }}">Contact</a></li>

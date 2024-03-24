@@ -6,6 +6,30 @@
             <div class="card-header">
                 Add Images
             </div>
+            <!--       //status notification code start       -->
+            @if (session('status'))
+                <div class="alert alert-warning" role="alert">
+                    {{ session('status') }}
+                </div>
+                <script>
+                    // Automatically close the alert after 5 seconds
+                    setTimeout(function() {
+                        $('.alert').slideUp(500);
+                    }, 2000);
+                </script>
+                <style>
+                    .alert {
+                        /* Add some padding to make the text look better */
+                        padding: 12px;
+                        /* Add transitions to animate height changes */
+                        transition: height 0.20s ease;
+
+                        overflow: hidden;
+                        /* Hide overflow to prevent abrupt closing */
+                    }
+                </style>
+            @endif
+            <!--       //status notification code end       -->
 
             <form action="{{ route('gallery_store') }}" method="POST" enctype="multipart/form-data">
                 {{ csrf_field() }}
