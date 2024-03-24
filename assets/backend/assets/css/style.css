@@ -1598,6 +1598,7 @@ input[type=checkbox] {
 
 .dropdown-item:focus, .dropdown-item:active {
   background: transparent;
+  
 }
 
 .progress {
@@ -2007,7 +2008,7 @@ input[type=checkbox] {
   text-decoration: none;
 }
 .digi-dropdown .dropdown-menu li .dropdown-item:hover {
-  color: #fff;
+  color: #000;
 }
 
 .table .digi-dropdown .dropdown-menu::after {

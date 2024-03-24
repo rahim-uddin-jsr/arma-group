@@ -3,6 +3,7 @@
 namespace App\Http\Controllers;
 
 use App\Model\Gallery;
+use App\Model\Projects;
 use Illuminate\Http\Request;
 
 class FrontendController extends Controller
@@ -28,17 +29,26 @@ class FrontendController extends Controller
         return view('frontend.pages.about.chairman-message');
     }
     // project section start
+    public function projectDetails($id)
+    {
+        $project = Projects::with('images','keyFeature')->find($id);
+        return view('frontend.pages.project.project-details',compact('project'));
+        // return view('frontend.pages.contact');
+    }
     public function upcomingProject()
     {
-        return view('frontend.pages.project.upcoming-project');
+        $projects = Projects::with('images','feature')->get()->whereIn('status', 'upcoming');
+        return view('frontend.pages.project.upcoming-project',compact('projects'));
     }
     public function onGoingProject()
     {
-        return view('frontend.pages.project.on-going-project');
+        $projects = Projects::with('images','feature')->get()->whereIn('status', 'ongoing');
+        return view('frontend.pages.project.on-going-project',compact('projects'));
     }
     public function completedProject()
     {
-        return view('frontend.pages.project.completed-project');
+        $projects = Projects::with('images','feature')->get()->whereIn('status', 'completed');
+        return view('frontend.pages.project.completed-project',compact('projects'));
     }
     // project section end
     public function gallary()

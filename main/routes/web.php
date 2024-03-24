@@ -28,13 +28,12 @@ Route::get('/chairman-message', 'FrontendController@chairmanMessage')->name('cha
 Route::get('/completed-project', 'FrontendController@completedProject')->name('completed project');
 Route::get('/upcoming-project', 'FrontendController@upcomingProject')->name('upcoming project');
 Route::get('/on-going-project', 'FrontendController@onGoingProject')->name('on going project');
+Route::get('/project/{id}', 'FrontendController@projectDetails')->name('project details');
 // Project routes end
 Route::get('/gallary', 'FrontendController@gallary')->name('gallary');
 Route::get('/certrfication', 'FrontendController@certrfication')->name('certrfication');
 Route::get('/careers', 'FrontendController@career')->name('Career');
 Route::get('/contact', 'FrontendController@contact')->name('contact');
-Route::get('/projects', 'BackendController@projects')->name('projects');
-Route::get('/project/{id}', 'BackendController@project')->name('project');
 Route::get('/gallery-data', 'BackendController@gallery')->name('gallery data');
 Route::get('/basic', 'BackendController@basicInfo')->name('basic data');
 
@@ -45,13 +44,17 @@ Route::middleware(['auth', 'roleManagement'])->group(function () {
     Route::prefix('dashboard')->group(function () {
         Route::get('/', 'HomeController@index')->name('home');
         Route::prefix('project')->group(function () {
-
             //-------*********route for backend-------*********//
-
-            //addProject
-
+            //Project
             Route::get('/add', 'BackendController@addProjectIndex')->name('add project index');
-
+            Route::post('/add', 'BackendController@addProject')->name('add project');
+            Route::get('/upcoming', 'BackendController@upcomingProjects')->name('upcoming index');
+            Route::get('/ongoing', 'BackendController@ongoingProjects')->name('ongoing index');
+            Route::get('/completed', 'BackendController@completedProjects')->name('completed index');
+            Route::get('/delete/{id}', 'BackendController@deleteProject')->name('delete project');
+            Route::get('/edit/{id}', 'BackendController@editProjectIndex')->name('edit project view');
+            Route::put('/edit/{id}', 'BackendController@editProject')->name('edit single project');
+            Route::get('/image-delete/{id}', 'BackendController@deleteProjectImage')->name('delete project image');
 
         });
 
