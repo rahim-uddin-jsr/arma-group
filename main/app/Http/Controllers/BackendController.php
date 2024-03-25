@@ -74,11 +74,11 @@ class BackendController extends Controller
     public function deleteProjectImage($id)
     {
         $project = ProjectImage::find($id);
-        $isDelete=$project->delete();
+        $isDelete = $project->delete();
         if ($isDelete) {
-            response('deleted',200);
-        }else{
-            response('something went wrong',403);
+            response('deleted', 200);
+        } else {
+            response('something went wrong', 403);
         }
     }
     public function editProject(Request $request, $id)
@@ -187,34 +187,32 @@ class BackendController extends Controller
     }
 
     public function store_gallery(Request $request)
-{
-    $gallary = new Gallery;
-    $gallary->title = $request->input('title');
-    $gallary->position = $request->input('position');
+    {
+        $gallary = new Gallery;
+        $gallary->title = $request->input('title');
+        $gallary->position = $request->input('position');
 
-    // Check if the position is provided and not empty
-    if (!empty($gallary->position)) {
-        // Check duplicate position only if position is provided
-        $check = Gallery::where('position', $gallary->position)->first();
+        // Check if the position is provided and not empty
+        if (!empty($gallary->position)) {
+            // Check duplicate position only if position is provided
+            $check = Gallery::where('position', $gallary->position)->first();
 
-        if ($check) {
-            return redirect('dashboard/gallery')->with('status', 'Duplicate position, data entry unsuccessful');
+            if ($check) {
+                return redirect('dashboard/gallery')->with('status', 'Duplicate position, data entry unsuccessful');
+            }
         }
+
+        if ($request->hasFile('image')) {
+            $file = $request->file('image');
+            $extension = $file->getClientOriginalExtension();
+            $filename = 'image_' . time() . '.' . $extension;
+            $file->move('assets/uploads/gallery/', $filename);
+            $gallary->image = $filename;
+        }
+
+        $gallary->save();
+        return redirect('dashboard/gallery_table')->with('status', 'Image added successfully');
     }
-
-
-    if ($request->hasFile('image')) {
-        $file = $request->file('image');
-        $extension = $file->getClientOriginalExtension();
-        $filename = 'image_' . time() . '.' . $extension;
-        $file->move('assets/uploads/gallery/', $filename);
-        $gallary->image = $filename;
-    }
-
-    $gallary->save();
-    return redirect('dashboard/gallery_table')->with('status', 'Image added successfully');
-}
-
 
     public function gallery_table_edit($id)
     {
@@ -225,46 +223,44 @@ class BackendController extends Controller
     }
 
     public function gallery_table_update(Request $request, $id)
-{
-    $gallary = Gallery::findOrFail($id);
+    {
+        $gallary = Gallery::findOrFail($id);
 
-    $gallary->title = $request->input('title');
-    $gallary->position = $request->input('position');
+        $gallary->title = $request->input('title');
+        $gallary->position = $request->input('position');
 
-    // Check if position is not null and not an empty string
-    if ($gallary->position !== null && $gallary->position !== '') {
-        // Check duplicate position
-        $check = Gallery::where('position', $gallary->position)
-                        ->where('id', '!=', $id) // Exclude the current gallery record
-                        ->first();
+        // Check if position is not null and not an empty string
+        if ($gallary->position !== null && $gallary->position !== '') {
+            // Check duplicate position
+            $check = Gallery::where('position', $gallary->position)
+                ->where('id', '!=', $id) // Exclude the current gallery record
+                ->first();
 
-        if ($check) {
-            return back()->with('status', 'Duplicate position, data entry unsuccessful');
-        }
-    }
-
-    // Handle image upload
-    if ($request->hasFile('image')) {
-        // Delete previous image
-        $destination = 'public/uploads/gallery/' . $gallary->image;
-        if (File::exists($destination)) {
-            File::delete($destination);
+            if ($check) {
+                return back()->with('status', 'Duplicate position, data entry unsuccessful');
+            }
         }
 
-        // Upload new image
-        $file = $request->file('image');
-        $extension = $file->getClientOriginalExtension();
-        $filename = time() . '.' . $extension;
-        $file->move('assets/uploads/gallery', $filename);
-        $gallary->image = $filename;
+        // Handle image upload
+        if ($request->hasFile('image')) {
+            // Delete previous image
+            $destination = 'public/uploads/gallery/' . $gallary->image;
+            if (File::exists($destination)) {
+                File::delete($destination);
+            }
+
+            // Upload new image
+            $file = $request->file('image');
+            $extension = $file->getClientOriginalExtension();
+            $filename = time() . '.' . $extension;
+            $file->move('assets/uploads/gallery', $filename);
+            $gallary->image = $filename;
+        }
+
+        $gallary->update();
+
+        return redirect('dashboard/gallery_table')->with('status', 'Data updated successfully');
     }
-
-    $gallary->update();
-
-    return redirect('dashboard/gallery_table')->with('status', 'Data updated successfully');
-}
-
-
 
     // gallery table
 
@@ -273,21 +269,20 @@ class BackendController extends Controller
 
         //gallery-phpmyadminfetch
 
-
         $gallaryshow = Gallery::all();
         return view('backend.pages.gallerytable', compact('gallaryshow'));
     }
 
     public function gallery_table_delete($id)
     {
-
         $gallary = Gallery::findOrFail($id);
-        $gallary->delete();
+        $deleted = $gallary->delete();
+        $destination = 'assets/uploads/gallery/' . $gallary->image;
+        if ($deleted) {
+            fileDelete($destination);
+        }
         return redirect('/dashboard/gallery_table')->with('status', 'data deleted successfully');
     }
-
-
-
 
     //gallery section end
 }
