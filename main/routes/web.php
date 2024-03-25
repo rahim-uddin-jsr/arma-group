@@ -55,7 +55,6 @@ Route::middleware(['auth', 'roleManagement'])->group(function () {
             Route::get('/edit/{id}', 'BackendController@editProjectIndex')->name('edit project view');
             Route::put('/edit/{id}', 'BackendController@editProject')->name('edit single project');
             Route::get('/image-delete/{id}', 'BackendController@deleteProjectImage')->name('delete project image');
-
         });
 
            // basicinfo

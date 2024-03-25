@@ -73,9 +73,11 @@ class BackendController extends Controller
     }
     public function deleteProjectImage($id)
     {
-        $project = ProjectImage::find($id);
-        $isDelete = $project->delete();
+        $project_matched = ProjectImage::find($id);
+        $isDelete = $project_matched->delete();
         if ($isDelete) {
+            $destination = $project_matched->image;
+            fileDelete($destination);
             response('deleted', 200);
         } else {
             response('something went wrong', 403);
@@ -84,11 +86,9 @@ class BackendController extends Controller
     public function editProject(Request $request, $id)
     {
         $project = Projects::find($id);
-
         ProjectFeature::where('project_id', '=', $id)->delete();
         KeyFeature::where('project_id', '=', $id)->delete();
         $features = request('feature');
-        // dd(request('feature'));
         foreach ($features as $key => $value) {
             if (!$value) {
                 continue;
@@ -149,6 +149,11 @@ class BackendController extends Controller
     public function deleteProject($id)
     {
         $project = Projects::find($id);
+        $project_images = ProjectImage::all()->whereIn('project_id', $id);
+        foreach ($project_images as $key => $value) {
+            $destination = $value->image;
+            fileDelete($destination);
+        }
         $project->delete();
         return back()->with('status', 'Successfully deleted!');
     }
