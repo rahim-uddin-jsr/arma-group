@@ -244,9 +244,12 @@ class BackendController extends Controller
         // Handle image upload
         if ($request->hasFile('image')) {
             // Delete previous image
-            $destination = 'public/uploads/gallery/' . $gallary->image;
-            if (File::exists($destination)) {
-                File::delete($destination);
+            $destination = 'assets/uploads/gallery/' . $gallary->image;
+
+
+            if (file_exists($destination)) {
+
+                fileDelete($destination);
             }
 
             // Upload new image
