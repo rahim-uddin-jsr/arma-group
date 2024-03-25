@@ -73,9 +73,13 @@ class BackendController extends Controller
     }
     public function deleteProjectImage($id)
     {
-        $project = ProjectImage::find($id);
-        $isDelete=$project->delete();
+        $project_maced = ProjectImage::find($id);
+        $isDelete=$project_maced->delete();
         if ($isDelete) {
+            // $destination = 'assets/uploads/projects-images/' . $project_maced->image_url;
+        if (File::exists($project_maced->image_url)) {
+            File::delete($project_maced->image_url);
+        }
             response('deleted',200);
         }else{
             response('something went wrong',403);

@@ -54,5 +54,4 @@
     </div>
 </section>
 <!--/Property details area-->
-
 @endsection
