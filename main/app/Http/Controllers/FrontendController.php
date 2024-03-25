@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers;
 
+use App\Model\Gallery;
 use App\Model\Projects;
 use Illuminate\Http\Request;
 
@@ -50,9 +51,10 @@ class FrontendController extends Controller
         return view('frontend.pages.project.completed-project',compact('projects'));
     }
     // project section end
-    public function gallery()
+    public function gallary()
     {
-        return view('frontend.pages.gallery');
+        $gallery =Gallery::all();
+        return view('frontend.pages.gallary', compact('gallery'));
     }
     public function certrfication()
     {

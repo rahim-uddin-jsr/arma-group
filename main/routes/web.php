@@ -30,7 +30,7 @@ Route::get('/upcoming-project', 'FrontendController@upcomingProject')->name('upc
 Route::get('/on-going-project', 'FrontendController@onGoingProject')->name('on going project');
 Route::get('/project/{id}', 'FrontendController@projectDetails')->name('project details');
 // Project routes end
-Route::get('/gallery', 'FrontendController@gallery')->name('gallery');
+Route::get('/gallary', 'FrontendController@gallary')->name('gallary');
 Route::get('/certrfication', 'FrontendController@certrfication')->name('certrfication');
 Route::get('/careers', 'FrontendController@career')->name('Career');
 Route::get('/contact', 'FrontendController@contact')->name('contact');
@@ -55,7 +55,6 @@ Route::middleware(['auth', 'roleManagement'])->group(function () {
             Route::get('/edit/{id}', 'BackendController@editProjectIndex')->name('edit project view');
             Route::put('/edit/{id}', 'BackendController@editProject')->name('edit single project');
             Route::get('/image-delete/{id}', 'BackendController@deleteProjectImage')->name('delete project image');
-
         });
 
            // basicinfo
@@ -75,6 +74,7 @@ Route::middleware(['auth', 'roleManagement'])->group(function () {
            //gallery-table-edit/update
            Route::get('/gallery_table_edit/{id}', 'BackendController@gallery_table_edit')->name('gallery_table_edit');
            Route::put('/gallery_table_update/{id}', 'BackendController@gallery_table_update')->name('gallery_table_update');
+           Route::delete('/gallery_table_delete/{id}', 'BackendController@gallery_table_delete')->name('gallery_table_delete');
 
 
 

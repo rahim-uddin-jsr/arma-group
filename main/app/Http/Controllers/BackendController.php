@@ -73,26 +73,22 @@ class BackendController extends Controller
     }
     public function deleteProjectImage($id)
     {
-        $project_maced = ProjectImage::find($id);
-        $isDelete=$project_maced->delete();
+        $project_matched = ProjectImage::find($id);
+        $isDelete = $project_matched->delete();
         if ($isDelete) {
-            // $destination = 'assets/uploads/projects-images/' . $project_maced->image_url;
-        if (File::exists($project_maced->image_url)) {
-            File::delete($project_maced->image_url);
-        }
-            response('deleted',200);
-        }else{
-            response('something went wrong',403);
+            $destination = $project_matched->image;
+            fileDelete($destination);
+            response('deleted', 200);
+        } else {
+            response('something went wrong', 403);
         }
     }
     public function editProject(Request $request, $id)
     {
         $project = Projects::find($id);
-
         ProjectFeature::where('project_id', '=', $id)->delete();
         KeyFeature::where('project_id', '=', $id)->delete();
         $features = request('feature');
-        // dd(request('feature'));
         foreach ($features as $key => $value) {
             if (!$value) {
                 continue;
@@ -153,6 +149,11 @@ class BackendController extends Controller
     public function deleteProject($id)
     {
         $project = Projects::find($id);
+        $project_images = ProjectImage::all()->whereIn('project_id', $id);
+        foreach ($project_images as $key => $value) {
+            $destination = $value->image;
+            fileDelete($destination);
+        }
         $project->delete();
         return back()->with('status', 'Successfully deleted!');
     }
@@ -189,12 +190,22 @@ class BackendController extends Controller
     {
         return view('backend.pages.gallery');
     }
+
     public function store_gallery(Request $request)
     {
-
         $gallary = new Gallery;
         $gallary->title = $request->input('title');
         $gallary->position = $request->input('position');
+
+        // Check if the position is provided and not empty
+        if (!empty($gallary->position)) {
+            // Check duplicate position only if position is provided
+            $check = Gallery::where('position', $gallary->position)->first();
+
+            if ($check) {
+                return redirect('dashboard/gallery')->with('status', 'Duplicate position, data entry unsuccessful');
+            }
+        }
 
         if ($request->hasFile('image')) {
             $file = $request->file('image');
@@ -204,10 +215,8 @@ class BackendController extends Controller
             $gallary->image = $filename;
         }
 
-
         $gallary->save();
-        return redirect('dashboard/gallery_table')->with('status', 'image added successfully');
-
+        return redirect('dashboard/gallery_table')->with('status', 'Image added successfully');
     }
 
     public function gallery_table_edit($id)
@@ -222,16 +231,30 @@ class BackendController extends Controller
     {
         $gallary = Gallery::findOrFail($id);
 
-
-
         $gallary->title = $request->input('title');
         $gallary->position = $request->input('position');
 
+        // Check if position is not null and not an empty string
+        if ($gallary->position !== null && $gallary->position !== '') {
+            // Check duplicate position
+            $check = Gallery::where('position', $gallary->position)
+                ->where('id', '!=', $id) // Exclude the current gallery record
+                ->first();
+
+            if ($check) {
+                return back()->with('status', 'Duplicate position, data entry unsuccessful');
+            }
+        }
+
+        // Handle image upload
         if ($request->hasFile('image')) {
-            $destination = 'public/uploads/icons/' . $gallary->image;
+            // Delete previous image
+            $destination = 'public/uploads/gallery/' . $gallary->image;
             if (File::exists($destination)) {
                 File::delete($destination);
             }
+
+            // Upload new image
             $file = $request->file('image');
             $extension = $file->getClientOriginalExtension();
             $filename = time() . '.' . $extension;
@@ -239,12 +262,10 @@ class BackendController extends Controller
             $gallary->image = $filename;
         }
 
-
         $gallary->update();
-        return redirect('dashboard/gallery_table')->with('status', 'data updated successfully');
 
+        return redirect('dashboard/gallery_table')->with('status', 'Data updated successfully');
     }
-
 
     // gallery table
 
@@ -253,14 +274,20 @@ class BackendController extends Controller
 
         //gallery-phpmyadminfetch
 
-
         $gallaryshow = Gallery::all();
         return view('backend.pages.gallerytable', compact('gallaryshow'));
     }
 
+    public function gallery_table_delete($id)
+    {
+        $gallary = Gallery::findOrFail($id);
+        $deleted = $gallary->delete();
+        $destination = 'assets/uploads/gallery/' . $gallary->image;
+        if ($deleted) {
+            fileDelete($destination);
+        }
+        return redirect('/dashboard/gallery_table')->with('status', 'data deleted successfully');
+    }
 
-
-
-
-    //gallery section start
+    //gallery section end
 }
